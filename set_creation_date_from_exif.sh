@@ -42,7 +42,7 @@ process_file() {
         return 1
     fi
 
-    # Extract date and time, ignoring the timezone
+    # Extract date and time including seconds, ignoring the timezone
     DATE_PART=$(echo "$EXIF_DATE" | cut -d' ' -f1 | sed 's/://g')
     TIME_PART=$(echo "$EXIF_DATE" | cut -d' ' -f2 | cut -d'-' -f1 | sed 's/://g')
 
@@ -50,8 +50,8 @@ process_file() {
     echo "Parsed Date Part: $DATE_PART"
     echo "Parsed Time Part: $TIME_PART"
 
-    # Combine date and time into a format compatible with touch (YYYYMMDDHHMM)
-    FORMATTED_DATE="${DATE_PART}${TIME_PART:0:4}"
+    # Combine date and time into a format compatible with touch (YYYYMMDDHHMM.SS)
+    FORMATTED_DATE="${DATE_PART}${TIME_PART:0:4}.${TIME_PART:4:2}"
 
     # Output the formatted date for debugging
     echo "Formatted Date for touch: $FORMATTED_DATE"
