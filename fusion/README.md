@@ -98,6 +98,10 @@ x,y,z
 •	Incorrect Scaling: Adjust conversion_factor if points are not appearing at the expected scale.
 •	CSV Format Issues: Ensure the CSV file uses x, y, and z headers and numeric values.
 
+## Why?
+There is an ImportSplineCSV script ootb, but ~~sometimes~~ more often you don't need a spline, just dots.
+![](./fusion_spline.png)
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
 
